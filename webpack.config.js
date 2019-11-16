@@ -1,11 +1,11 @@
 const path = require('path');
-
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index.tsx',
   resolve: {
-    extensions: ['.ts', '.tsx', '.js']
+    extensions: ['.ts', '.tsx', '.js', '.sss']
   },
   output: {
     path: path.join(__dirname, '/dist'),
@@ -18,7 +18,7 @@ module.exports = {
         loader: 'awesome-typescript-loader'
       },
       {
-        test: /\.css$/,
+        test: [/\.sss$/],
         use: [ 'style-loader', 'postcss-loader' ]
       }
     ]
